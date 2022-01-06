@@ -1,0 +1,27 @@
+<div class="login-form">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group mb-4">
+      <label for="exampleInputEmail1">Username</label>
+      <input formControlName="username" type="text" class="form-control" placeholder="johndoe123">
+      <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)" class="text-danger">
+        <small *ngIf="f.username.errors?.['required']">
+          username is required.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input formControlName="password" type="password" class="form-control" placeholder="Password">
+      <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)" class="text-danger">
+        <small *ngIf="f.password.errors?.['required']">
+          password is required.
+        </small>
+      </div>
+    </div>
+
+    <div class="mt-5 text-center">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </form>
+</div>
