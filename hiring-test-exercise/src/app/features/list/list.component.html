@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Call Type</th>
+      <th scope="col">created</th>
+      <th scope="col">direction</th>
+      <th scope="col">duration</th>
+      <th scope="col">from</th>
+      <th scope="col">to</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let call of callList">
+      <td><a (click)="showCallDetails(callDetail, call)" class="call-id text-primary">{{call.id}}</a></td>
+      <td>{{call.call_type}}</td>
+      <td>{{call.created_at}}</td>
+      <td>{{call.direction}}</td>
+      <td>{{call.duration}}</td>
+      <td>{{call.from}}</td>
+      <td>{{call.to}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #callDetail>
+  <app-call-detail [call]="selectedCall"></app-call-detail>
+</ng-template>
